@@ -31,7 +31,7 @@ function Kids() {
                     return (
 
 
-                        <div className='movie'>
+                        <div key={movie.id} className='movie'>
                             <img alt='moviePoster' src={image_path + movie.poster_path} className='poster'></img>
                             <div className='movie-details'>
                                 <div className='box'>

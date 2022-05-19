@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './style.css'
+import Button from '@mui/material/Button';
 
 
 
@@ -34,16 +35,18 @@ function Popular() {
             <div className='container'>
 
                 {movies.length === 0 ? <p className='notfound'>Not found</p> : movies.map((movie) => {
+
                     return (
 
 
-                        <div className='movie'>
+                        <div key={movie.id} className='movie'>
                             <img alt='moviePoster' src={image_path + movie.poster_path} className='poster'></img>
                             <div className='movie-details'>
                                 <div className='box'>
 
                                     <h4 className='title'>{movie.title}</h4>
                                     <p className='rating'>{movie.vote_average}</p>
+
 
                                 </div>
 
@@ -57,11 +60,21 @@ function Popular() {
 
 
 
+
                             </div>
 
 
 
+
+                            <Button className='add-btn' variant="outlined">Add To CART</Button>
+
+
+
+
                         </div>
+
+
+
 
                     )
                 })
