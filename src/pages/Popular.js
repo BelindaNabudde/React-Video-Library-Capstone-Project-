@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, {useEffect, useState } from 'react'
 import './style.css'
-import Button from '@mui/material/Button';
+
 
 
 
@@ -10,10 +10,27 @@ let url = base_url + '/discover/movie?sort_by=popularity.desc' + API_KEY
 
 function Popular() {
 
+    
+
     let image_path = " https://image.tmdb.org/t/p/w500"
 
     const [movies, setMovies] = useState([])
     //const [url_set, setUrl] = useState(url)
+
+
+
+    // useEffect(()=>{
+    //     const storedMovies = JSON.parse(localStorage.getItem('movies'))
+    //     if(storedMovies){
+    //         setMovies(storedMovies);
+    //     }
+      
+    //   },[])
+    
+    //   useEffect(()=>{
+
+    //     localStorage.setItem('movies',JSON.stringify(movies))
+    //   }, [movies])
 
 
 
@@ -25,9 +42,17 @@ function Popular() {
                 setMovies(data.results)
                 // console.log(movies)
             })
-    }, [movies])
+    }, [])
+
+const buttonClicked=()=>{
+    console.log('Button clicked')
+}
 
 
+const generatePrice =(min,max)=>{
+    let price = Math.floor(Math.random() *(max - min + 1)) + min;
+    return(price)
+}
 
 
     return (
@@ -46,6 +71,8 @@ function Popular() {
 
                                     <h4 className='title'>{movie.title}</h4>
                                     <p className='rating'>{movie.vote_average}</p>
+                                    <p className='price'><i className="fa-solid fa-dollar-sign"></i>{generatePrice(2,10)}</p>
+                                    
 
 
                                 </div>
@@ -64,12 +91,12 @@ function Popular() {
                             </div>
 
 
+                            
 
+                            
+                            <button onClick={buttonClicked} className='add-btn'>Add to Cart</button>
 
-                            <Button className='add-btn' variant="outlined">Add To CART</Button>
-
-
-
+                            
 
                         </div>
 
@@ -80,7 +107,7 @@ function Popular() {
                 })
                 }
 
-
+               
 
             </div>
 

@@ -51,6 +51,7 @@ function Drama() {
 
 
                             </div>
+                            <button  className='add-btn'>Add to Cart</button>
 
 
 

@@ -51,7 +51,7 @@ function Comedy() {
 
                             </div>
 
-
+                            <button className='add-btn'>Add to Cart</button>
 
                         </div>
 

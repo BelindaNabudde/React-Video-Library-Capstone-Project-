@@ -6,6 +6,8 @@ import InTheatre from '../src/pages/InTheatre'
 import Drama from '../src/pages/Drama'
 import Kids from '../src/pages/Kids'
 import Comedy from '../src/pages/Comedy'
+import Cart from '../src/pages/Cart'
+
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
         <Route path='/drama' element={<Drama />} />
         <Route path='/kids' element={<Kids />} />
         <Route path='/comedy' element={<Comedy />} />
+        <Route path='/cart' element={<Cart/>} />
       </Routes>
     </BrowserRouter>
   );

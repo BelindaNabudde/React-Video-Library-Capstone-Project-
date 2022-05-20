@@ -54,7 +54,7 @@ function InTheatre() {
 
                             </div>
 
-
+                            <button className='add-btn'>Add to Cart</button>
 
                         </div>
 

@@ -1,196 +1,214 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500&display=swap');
-*{
-    padding: 0;
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
-body{
+body {
   background-color: #232354;
 }
 
 
-:root{
-    --primary-color:#232354;
-    --secondary-color:#452b59;
+:root {
+  --primary-color: #232354;
+  --secondary-color: #452b59;
 }
 
-.header{
-    background-color: var(--secondary-color);
-    height: 100px;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-bottom: 30px;
-    
+.header {
+  background-color: var(--secondary-color);
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 30px;
+
 }
 
-nav ul{
+nav ul {
   display: flex;
 }
 
-nav ul li{
+nav ul li {
   list-style: none;
   margin-right: 1rem;
 }
 
 
-nav ul li a{
-    text-decoration: none;
-    color: white;
-    font-size: 1.2rem;
-    font-weight: normal;
-  }
-  .search-btn{
-    display: flex;
-  }
-  
-  .inputText{
-    outline: none;
-    border: 1px solid var(--primary-color);
-    border-radius: 2rem 0 0 2rem;
-    padding: 0.3rem 1rem;
-    font-size: 1rem;
-    color: white;
-    background-color: var(--primary-color);
-    box-shadow: inset 0 5px 10px var(--secondary-color);
-  }
-  
-  /* .inputText::placeholder{
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+
+.search-btn {
+  display: flex;
+}
+
+.inputText {
+  outline: none;
+  border: 1px solid var(--primary-color);
+  border-radius: 2rem 0 0 2rem;
+  padding: 0.3rem 1rem;
+  font-size: 1rem;
+  color: white;
+  background-color: var(--primary-color);
+  box-shadow: inset 0 5px 10px var(--secondary-color);
+}
+
+/* .inputText::placeholder{
     color: white;
   } */
-  
-  .search-btn button{
-    background-color: var(--secondary-color);
-    box-shadow: inset 0 5px 10px var(--secondary-color);
-    padding: 0.2rem 0.5rem;
-    border-radius: 0 2rem 2rem 0;
-    color: white;
-    font-size: 1rem;
-    outline: none;
-    border: 1px solid var(--primary-color);
-  }
+
+.search-btn button {
+  background-color: var(--secondary-color);
+  box-shadow: inset 0 5px 10px var(--secondary-color);
+  padding: 0.2rem 0.5rem;
+  border-radius: 0 2rem 2rem 0;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  border: 1px solid var(--primary-color);
+}
+
+.cart:hover {
+  cursor: pointer;
+}
 
 
-  
-.container{
-    margin: auto;
-    width: 80%;
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-  
-  }
-  
-  .movie{
-    box-shadow: 0 5px 10px rgba(0,0,0,0.5);
-    width: 250px;
+
+.container {
+  margin: auto;
+  width: 80%;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+}
+
+.movie {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  width: 250px;
+  background-color: var(--secondary-color);
+  margin: 1rem;
+  border-radius: 5px;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+.movie .poster {
+  width: 100%;
+  height: 250px;
+
+
+}
+
+.movie-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.movie-details .box {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+}
+
+.movie-details .title {
+  width: 160px;
+  text-align: center;
+}
+
+.movie-details .overview {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  max-height: 100%;
+  background-color: var(--secondary-color);
+  opacity: 0.9;
+  color: white;
+  box-sizing: border-box;
+  padding: 1rem;
+  transition: all 0.4s ease-in-out;
+  overflow-y: auto;
+  transform: translateY(101%);
+}
+
+.movie-details:hover .overview {
+  transform: translateY(0%);
+}
+
+.rating {
+  background-color: var(--primary-color);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  border: 1px solid var(--primary-color);
+  box-shadow: inset 0 5px 5px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
+
+.price{
+  left: 5px;
+  bottom: 20px;
+  position: relative;
+}
+
+.add-btn {
+
+  left: 5px;
+  bottom: 5px;
+  position: absolute;
+  /* width: 50px;
+    height: 50px; */
+  margin-bottom: 0;
+  bottom: 0;
+  background-color: white;
+  color: black;
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  align-items: center;
+}
+
+
+
+
+
+
+
+
+@media (max-width:900px) {
+  .header {
     background-color: var(--secondary-color);
-    margin: 1rem;
-    border-radius: 5px;
-    box-sizing: border-box;
-    overflow: hidden;
-    position: relative;
+    height: 180px;
   }
-  
-  .movie .poster{
-    width: 100%;
-    height: 250px;
-  
-     
-  }
-  
-  .movie-details{
+
+  nav ul {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .movie-details .box{
-    width: 100%;
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-
-  }
-  
-  .movie-details .title{
-    width: 160px;
-    text-align: center;
-  }
-  
-  .movie-details .overview{
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    max-height: 100%;
-    background-color: var(--secondary-color);
-    opacity: 0.9;
-    color: white;
-    box-sizing: border-box;
-    padding: 1rem;
-    transition: all 0.4s ease-in-out;
-    overflow-y: auto;
-    transform: translateY(101%);
-  }
-  
-  .movie-details:hover .overview{
-    transform: translateY(0%);
-  }
-  
-  .rating{
-    background-color: var(--primary-color);
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    border: 1px solid var(--primary-color);
-    box-shadow: inset 0 5px 5px rgba(0,0,0,0.5);
-    position: absolute;
-    right: 5px;
-    bottom: 5px;
-  }
-  
-  .add-btn{
-
-    left: 5px;
-    bottom: 5px;
-    position: absolute;
-    /* width: 50px;
-    height: 50px; */
-    margin-bottom: 0;
-    bottom: 0;
-    
-
   }
 
-
-  
-@media (max-width:900px){
-    .header{
-      background-color: var(--secondary-color);
-      height: 180px;
-    }
-  
-    nav ul{
-      display: flex;
-      flex-direction: column;
-    }
-  
-    nav ul li{
-      padding-top: 10px;
-    }
-  
-    .search-btn{
-      width: 200px;
-      margin-right: 100px;
-    }
+  nav ul li {
+    padding-top: 10px;
   }
-  
-  
+
+  .search-btn {
+    width: 200px;
+    margin-right: 100px;
+  }
+}
