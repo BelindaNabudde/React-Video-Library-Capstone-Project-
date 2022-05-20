@@ -3,7 +3,7 @@ import React from 'react';
 const validation=(values)=>{
     let errors={};
     if(!values.userName){
-        errors.username="userName is required."
+        errors.userName="User name is required."
     }
         if(!values.email){
             errors.email ="Email is required."
@@ -17,10 +17,13 @@ const validation=(values)=>{
             }
             if(!values.password2){
                 errors.password2="Password is required.";
-            } else if(values.password2.length<5){
-                    errors.password2='Password must be more then five characters'
-                }
-            
+            } 
+            if(values.password2.length<5){
+                errors.password2='Password must be more then five characters'
+            }
+            if(values.password2 !== values.password1){
+                errors.password2="Passwords  should be the same"
+            }
     
     return errors;
     

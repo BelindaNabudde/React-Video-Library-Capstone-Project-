@@ -1,16 +1,30 @@
 
 import React from 'react'
+import {useState} from "react"
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-// import CheckBoxOutlinedBlankIcon from '@material-ui/icons/CheckBoxOutlinedBlank';
-// import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import validation from "./vali-login-";
 import "./styles.css";
 
 export default function Login(){
+    const[values, setValues]=useState({
+        userName:"",
+        password1:"",
+    });
+    const [errors,setErrors]=useState({});
+
+    const handleChange=(e)=>{
+        setValues({
+            ...values,
+            [e.target.name]:e.target.value,
+        })
+    }
+    const handleFormSubmit=(e)=>{
+        e.preventDefault();
+        setErrors(validation(values));
+    }
     return(
         <div className='form'> 
          <div className='icon'>
@@ -20,7 +34,12 @@ export default function Login(){
         </div>
         <div className='row'>
         <div className='col-one'>
-        <TextField id="username"  type="text"  variant="outlined" label="UserName/Email" />
+        <TextField id="username"  type="text"  variant="outlined" label="UserName"
+        name="userName" 
+        value={values.userName} 
+        onChange={handleChange}/>
+        {errors.userName  && <p className="error">{errors.userName}</p>}
+        </div>
         </div>
         <br/>
         <br/>
@@ -29,16 +48,16 @@ export default function Login(){
         </div>
         <br/> 
         <br/> */}
-        </div>
+        
         <div className='row'>
-        <TextField id="password1"  type="text"  variant="outlined" label="Password"/>
+        <TextField id="password1"  type="text"  variant="outlined" label="Password"
+        name="password1" 
+        value={values.password1} 
+        onChange={handleChange}/>
+        {errors.password1  && <p className="error">{errors.password1}</p>}
         <br/> 
         <br/>
-        {/* <TextField id="password2"  type="text"  variant="outlined" label="Confirm Password" fullWidth/> */}
-        {/* <FormControlLabel control={<Checkbox defaultChecked />} label="I agree to the Terms and Conditions" /> */}
-        <br/>
-        <br/>
-        <Button id="submit"variant="contained" color="primary">Submit</Button>
+        <Button id="submit"variant="contained" color="primary" onClick={handleFormSubmit}>Submit</Button>
         </div> 
         <br/>
         <h3 className='text-center'>

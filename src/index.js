@@ -8,4 +8,4 @@ import Login from "./Login";
 
 
 const root =ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App/>);
+root.render(<Login/>);

@@ -4,13 +4,10 @@ import {useState} from 'react'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
-// import FormControlLabel from '@mui/material/FormControlLabel';
-// import Checkbox from '@mui/material/Checkbox';
-// import CheckBoxOutlinedBlankIcon from '@material-ui/icons/CheckBoxOutlinedBlank';
-// import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import "./App.css";
-import validation from "./validation"
+import validation from "./validation";
+import Login from "./Login"
 
 export default function App(){
     const[values, setValues]=useState({
@@ -30,6 +27,7 @@ export default function App(){
     }
     const handleFormSubmit=(e)=>{
         e.preventDefault();
+        // <Link to='./Login'/>
         setErrors(validation(values));
 
     };
@@ -72,11 +70,13 @@ export default function App(){
         name="password2" 
         value={values.password2} 
         onChange={handleChange}/> 
-        {errors.password2  && <p className="error">{errors.password1}</p>}
+        {errors.password2  && <p className="error">{errors.password2}</p>}
         {/* <FormControlLabel control={<Checkbox defaultChecked />} label="I agree to the Terms and Conditions" /> */}
         <br/>
         <br/>
-        <Button variant="contained" color="primary" onClick={handleFormSubmit}>Create Account</Button>
+        <Button variant="contained" color="primary"
+         onClick={handleFormSubmit}
+         > <Link to="Login"/>Create Account</Button>
         </div> 
         <br/>
         <h3 className='text-center'>
