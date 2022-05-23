@@ -1,5 +1,7 @@
-import React, {useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './style.css'
+
+import { AppContext } from '../context/AppContext'
 
 
 
@@ -10,7 +12,10 @@ let url = base_url + '/discover/movie?sort_by=popularity.desc' + API_KEY
 
 function Popular() {
 
-    
+    const [cart,setCart] = useState([]);
+
+    const context = useContext(AppContext)
+
 
     let image_path = " https://image.tmdb.org/t/p/w500"
 
@@ -18,20 +23,17 @@ function Popular() {
     //const [url_set, setUrl] = useState(url)
 
 
-
     // useEffect(()=>{
     //     const storedMovies = JSON.parse(localStorage.getItem('movies'))
     //     if(storedMovies){
     //         setMovies(storedMovies);
     //     }
-      
-    //   },[])
-    
-    //   useEffect(()=>{
+
+
+
 
     //     localStorage.setItem('movies',JSON.stringify(movies))
-    //   }, [movies])
-
+    // })
 
 
     useEffect(() => {
@@ -41,18 +43,68 @@ function Popular() {
                 // console.log(data.results)
                 setMovies(data.results)
                 // console.log(movies)
+
+
+
             })
-    }, [])
 
-const buttonClicked=()=>{
-    console.log('Button clicked')
-}
+            const storedMovies = JSON.parse(localStorage.getItem('movies'))
+            if(storedMovies){
+                setMovies(storedMovies);
+            }
+}, [])
+
+useEffect(()=>{
+
+    localStorage.setItem('movies',JSON.stringify(movies))
+  }, [movies])
 
 
-const generatePrice =(min,max)=>{
-    let price = Math.floor(Math.random() *(max - min + 1)) + min;
-    return(price)
-}
+
+
+    const generatePrice = (min, max) => {
+        let price = Math.floor(Math.random() * (max - min + 1)) + min;
+        return (price)
+    }
+
+
+    const handleOnClick = (id, film) => {
+
+        
+
+        let moviData = {
+            id:film.id,
+            image: image_path + film.poster_path,
+            title: film.title,
+            price: 40,
+            rating: film.vote_average
+        }
+
+
+        
+
+
+
+
+
+        
+        // console.log(moviData)
+        
+        
+        cart.push(moviData)
+        context.handleCartItems(cart)
+        console.log(cart)
+        //console.log(context.selectedMovie)
+        //setCart(moviData)
+
+        
+
+
+    }
+
+
+
+
 
 
     return (
@@ -71,8 +123,8 @@ const generatePrice =(min,max)=>{
 
                                     <h4 className='title'>{movie.title}</h4>
                                     <p className='rating'>{movie.vote_average}</p>
-                                    <p className='price'><i className="fa-solid fa-dollar-sign"></i>{generatePrice(2,10)}</p>
-                                    
+                                    <p className='price'><i className="fa-solid fa-dollar-sign"></i>{generatePrice(2, 10)}</p>
+
 
 
                                 </div>
@@ -91,12 +143,12 @@ const generatePrice =(min,max)=>{
                             </div>
 
 
-                            
 
-                            
-                            <button onClick={buttonClicked} className='add-btn'>Add to Cart</button>
 
-                            
+
+                            <button onClick={() => { handleOnClick(movie.id, movie) }} className='add-btn'>Add to Cart</button>
+
+
 
                         </div>
 
@@ -107,7 +159,7 @@ const generatePrice =(min,max)=>{
                 })
                 }
 
-               
+
 
             </div>
 

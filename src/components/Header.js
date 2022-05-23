@@ -26,11 +26,16 @@ function Header() {
                     <input className='inputText' placeholder='Enter Movie name' type='text'></input>
                     <button><i className="fas fa-search"></i></button>
 
-                    
+
 
                 </form>
 
-               <Link to='/cart'> <button className='cart'><i class="fa-solid fa-cart-shopping"></i></button></Link>
+                <div className='cart'>
+                    <span>
+                        <Link to='/cart'> <button ><i className="fas fa-cart-plus"></i></button></Link>
+                    </span>
+                    <span>0</span>
+                </div>
 
 
 

@@ -8,9 +8,13 @@ import Kids from '../src/pages/Kids'
 import Comedy from '../src/pages/Comedy'
 import Cart from '../src/pages/Cart'
 
+import {ContextProvider} from '../src/context/AppContext'
+
 
 function App() {
+  
   return (
+    <ContextProvider>
     <BrowserRouter>
       <div className="App">
         <Header />
@@ -25,6 +29,8 @@ function App() {
         <Route path='/cart' element={<Cart/>} />
       </Routes>
     </BrowserRouter>
+
+    </ContextProvider>
   );
 }
 

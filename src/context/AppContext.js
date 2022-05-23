@@ -4,25 +4,25 @@ const AppContext = createContext();
 
 function ContextProvider({children}){
 
-    const [movies, setMovies] = useState(
-        {
-            title:'',
-            price: '',
-            rating:'',
+    const [selectedMovie, setSelectedMovie] = useState(
+        {   
+            id:'',
             image:'',
-            overview:''
+            title:'',
+            price:'',
+            rating:''
 
         }
     
     )
 
-    const handleMovies =(movieData)=>{
+    const handleCartItems =(cartData)=>{
 
-        setMovies(movieData)
+        setSelectedMovie(cartData)
     }
 
     return(
-        <AppContext.Provider value={{movies,handleMovies}}>
+        <AppContext.Provider value={{selectedMovie,handleCartItems}}>
             {children}
         </AppContext.Provider>
     )
