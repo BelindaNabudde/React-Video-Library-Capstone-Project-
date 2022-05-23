@@ -12,7 +12,7 @@ let url = base_url + '/discover/movie?sort_by=popularity.desc' + API_KEY
 
 function Popular() {
 
-    const [cart,setCart] = useState([]);
+    const [cart, setCart] = useState([]);
 
     const context = useContext(AppContext)
 
@@ -48,16 +48,16 @@ function Popular() {
 
             })
 
-            const storedMovies = JSON.parse(localStorage.getItem('movies'))
-            if(storedMovies){
-                setMovies(storedMovies);
-            }
-}, [])
+        const storedMovies = JSON.parse(localStorage.getItem('movies'))
+        if (storedMovies) {
+            setMovies(storedMovies);
+        }
+    }, [])
 
-useEffect(()=>{
+    useEffect(() => {
 
-    localStorage.setItem('movies',JSON.stringify(movies))
-  }, [movies])
+        localStorage.setItem('movies', JSON.stringify(movies))
+    }, [movies])
 
 
 
@@ -70,10 +70,10 @@ useEffect(()=>{
 
     const handleOnClick = (id, film) => {
 
-        
+
 
         let moviData = {
-            id:film.id,
+            id: film.id,
             image: image_path + film.poster_path,
             title: film.title,
             price: 40,
@@ -81,23 +81,23 @@ useEffect(()=>{
         }
 
 
-        
 
 
 
 
 
-        
+
+
         // console.log(moviData)
-        
-        
+
+
         cart.push(moviData)
         context.handleCartItems(cart)
         console.log(cart)
         //console.log(context.selectedMovie)
-        //setCart(moviData)
+        setCart(cart)
 
-        
+
 
 
     }

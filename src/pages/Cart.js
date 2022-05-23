@@ -14,6 +14,22 @@ function Cart() {
 
     console.log(context.selectedMovie)
 
+    const handleRemove =(id)=>{
+        const arr = [...context.selectedMovie]
+        let index = arr.findIndex(item => item.id === id)
+
+        arr.splice(index,1)
+        
+        
+        context.handleCartItems(arr);
+        
+
+
+        console.log(context.selectedMovie)
+
+       
+    }
+
 
     return (
 
@@ -43,7 +59,7 @@ function Cart() {
                                             <p>{movie.title}</p>
                                             <small className='itemPrice'>Price:<i className="fa-solid fa-dollar-sign"></i>{movie.price}</small>
                                             <br />
-                                            <button className='remve'>Remove</button>
+                                            <button onClick={()=>{handleRemove(movie.id)}} className='remve'>Remove</button>
                                         </div>
                                     </div>
                                 </td>

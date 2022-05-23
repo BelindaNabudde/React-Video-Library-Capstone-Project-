@@ -32,7 +32,7 @@ function Header() {
 
                 <div className='cart'>
                     <span>
-                        <Link to='/cart'> <button ><i className="fas fa-cart-plus"></i></button></Link>
+                        <Link to='/cart'> <i className="fas fa-cart-plus"></i></Link>
                     </span>
                     <span>0</span>
                 </div>
