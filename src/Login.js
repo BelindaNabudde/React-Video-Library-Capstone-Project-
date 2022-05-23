@@ -3,15 +3,17 @@ import React from 'react'
 import {useState} from "react"
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import Link from '@mui/material/Link';
+// import Link from '@mui/material/Link';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import validation from "./vali-login-";
+import Signup from "./Signup"
 import "./styles.css";
+import {Link} from "react-router-dom";
 
 export default function Login(){
     const[values, setValues]=useState({
-        userName:"",
-        password1:"",
+        username:"",
+        password:"",
     });
     const [errors,setErrors]=useState({});
 
@@ -21,6 +23,7 @@ export default function Login(){
             [e.target.name]:e.target.value,
         })
     }
+    
     const handleFormSubmit=(e)=>{
         e.preventDefault();
         setErrors(validation(values));
@@ -35,10 +38,10 @@ export default function Login(){
         <div className='row'>
         <div className='col-one'>
         <TextField id="username"  type="text"  variant="outlined" label="UserName"
-        name="userName" 
-        value={values.userName} 
+        name="username" 
+        value={values.username} 
         onChange={handleChange}/>
-        {errors.userName  && <p className="error">{errors.userName}</p>}
+        {errors.username  && <p className="error">{errors.username}</p>}
         </div>
         </div>
         <br/>
@@ -51,17 +54,17 @@ export default function Login(){
         
         <div className='row'>
         <TextField id="password1"  type="text"  variant="outlined" label="Password"
-        name="password1" 
-        value={values.password1} 
+        name="password" 
+        value={values.password} 
         onChange={handleChange}/>
-        {errors.password1  && <p className="error">{errors.password1}</p>}
+        {errors.password  && <p className="error">{errors.password}</p>}
         <br/> 
         <br/>
-        <Button id="submit"variant="contained" color="primary" onClick={handleFormSubmit}>Submit</Button>
+        <Link to="/Signup"><Button id="submit"variant="contained" color="primary" onClick={handleFormSubmit}>  Submit</Button></Link>
         </div> 
         <br/>
         <h3 className='text-center'>
-            <Link href="./App.js" id="link">Don't have an account</Link>
+            <Link to="/Signup">Don't have an account</Link>
         </h3> 
         </div>
     );
