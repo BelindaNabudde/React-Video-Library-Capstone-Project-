@@ -9,11 +9,11 @@ export default function App(){
     return(    
         <BrowserRouter>
         <div className='App'> 
-        <Login/>
+    
         </div>
             <Routes>
             <Route  path='/' element={<Signup/>}/>
-            <Route path='/Login' component={<Login/>}/>
+            <Route path='/Login' element={<Login/>}/>
             </Routes>   
         </BrowserRouter>
     )

@@ -60,11 +60,11 @@ export default function Login(){
         {errors.password  && <p className="error">{errors.password}</p>}
         <br/> 
         <br/>
-        <Link to="/Signup"><Button id="submit"variant="contained" color="primary" onClick={handleFormSubmit}>  Submit</Button></Link>
+        <Button id="submit"variant="contained" color="primary" onClick={handleFormSubmit}>  Submit</Button>
         </div> 
         <br/>
         <h3 className='text-center'>
-            <Link to="/Signup">Don't have an account</Link>
+            <Link to="/" id="Link">Don't have an account</Link>
         </h3> 
         </div>
     );

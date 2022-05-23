@@ -6,8 +6,7 @@ import Button from '@mui/material/Button';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import "./App.css";
 import validation from "./validation";
-import {Link} from "react-router-dom"
-import Login from "./Login"
+import {Link} from "react-router-dom";
 
 
 export default function Signup(){
@@ -40,12 +39,12 @@ export default function Signup(){
     
     }
     const handleFormSubmit=(e)=>{
-        // e.preventDefault();    
+        e.preventDefault();    
         setErrors(validation(values));
-        console.log([values.userName]);
-        console.log([values.email]);
-        console.log([values.password1]);
-        console.log([values.password2]);
+        // console.log([values.userName]);
+        // console.log([values.email]);
+        // console.log([values.password1]);
+        // console.log([values.password2]);
     };
     return(
         <div className="form">
@@ -91,11 +90,11 @@ export default function Signup(){
         <br/>
         <Button variant="contained" color="primary"
          onClick={handleFormSubmit}
-         ><Link to="/Login">Create Account</Link></Button>
+         ><Link to="#" id="button-link">Create Account</Link></Button>
         </div> 
         <br/>
         <h3 className='text-center'>
-        <Link to="/Login">Already have an Account</Link>
+        <Link to="/Login" id="login-link">Already have an Account</Link>
         </h3> 
         <br/>
         </div>

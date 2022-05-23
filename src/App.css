@@ -10,6 +10,7 @@
   /* align-items: center; */
   /* font-size: 40px; */
   margin-top: 30px;
+  color: black;
 }
 
 /* .text{
@@ -30,20 +31,28 @@
  .text-center{
   align-items: center;
   margin-left: 550px;
- }  */
- #link{
+ }
+   */
+
+  #button-link{
+    text-decoration: none;
+    color: black;
+  }
+
+ #login-link{
  text-decoration: none;
+ color:black
  }
  .error{
   color: red;
 }
 
-.form{
+/* .form{
   background-color:rgb(174, 196, 196);
   margin-left: 300px;
   margin-right: 300px;
-  margin-top:80px;
+  margin-top:30px;
   text-align: center;
-}
+} */
 
   

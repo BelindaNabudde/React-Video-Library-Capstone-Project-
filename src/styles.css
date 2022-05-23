@@ -10,6 +10,7 @@
     /* font-size: 40px; */
     /* margin-top: 60px; */
     padding-top: 25px;
+    color:black
   } 
   
   /* .text{
@@ -30,15 +31,17 @@
     align-items: center;
     margin-left: 550px;
    }  */
-   #link{
+   #Link{
    text-decoration: none;
+   color: black;
    }
 
-   .form{
-    background-color:rgb(174, 196, 196);
-    margin-left: 300px;
-    margin-right: 300px;
-    margin-top:80px;
+    .form{
+    background-color:rgb(236, 230, 230);
+    margin-left: 400px;
+    margin-right: 400px;
+    /* margin-top:30px; */
     text-align: center;
-  }
-   
+    border-style: solid;
+  } 
+    
