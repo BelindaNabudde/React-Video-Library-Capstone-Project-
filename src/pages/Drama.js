@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './style.css'
+import Header from '../components/Header'
 
 const API_KEY = '&api_key=89e57dcae9771ece73cf9ab5b6d61244'
 let base_url = 'https://api.themoviedb.org/3'
@@ -24,6 +25,7 @@ function Drama() {
 
     return (
         <>
+        <Header/>
             <div className='container'>
 
                 {movies.length === 0 ? <p className='notfound'>Not found</p> : movies.map((movie) => {

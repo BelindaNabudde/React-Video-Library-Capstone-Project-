@@ -31,10 +31,17 @@
     align-items: center;
     margin-left: 550px;
    }  */
-   #Link{
+   #button{
    text-decoration: none;
    color: black;
    }
+   #submit{
+     color: black;
+   }
+   .error{
+    color: red;
+   }
+
 
     .form{
     background-color:rgb(236, 230, 230);
@@ -43,5 +50,17 @@
     /* margin-top:30px; */
     text-align: center;
     border-style: solid;
-  } 
+  }
+#button-link{
+  text-decoration: none;
+  color: black;
+} 
+#login-link{
+  text-decoration: none;
+  color:black
+}
+#Link{
+  text-decoration: none;
+  color: black;
+  }
     

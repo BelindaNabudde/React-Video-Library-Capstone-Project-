@@ -1,5 +1,5 @@
 import React, {useContext } from 'react'
-
+import Header from '../components/Header'
 import './cart.css'
 
 import { AppContext } from '../context/AppContext'
@@ -46,7 +46,8 @@ function Cart() {
     
 
     return (
-
+        <>
+        <Header/>
         <div className="small-container cart-page">
 
             <table>
@@ -102,6 +103,8 @@ function Cart() {
 
 
         </div>
+        </>
+        
     )
 }
 

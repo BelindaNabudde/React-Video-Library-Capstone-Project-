@@ -2,9 +2,7 @@ import React from 'react';
 import {useState} from 'react'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-// import Link from '@mui/material/Link';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
-import "./App.css";
 import validation from "./validation";
 import {Link} from "react-router-dom";
 
@@ -17,20 +15,8 @@ export default function Signup(){
         password2:""
     });
     const [errors,setErrors]=useState({});
-    const [auth ,setAuth]=useState({});
-    // const auth=JSON.parse(localStorage.getItem('values')); 
-    // auth=[{'userName':'aaa','password1':'aaa'}];
-
-    // const  addToLocalStorage=()=>{
-    //     auth =[...auth,{'userName':userName,"password1": password1}];
-    //     // localStorage.setItem('auth',values)  
-    //     localStorage.setItem('auth',JSON.stringify(auth));
-        
-    //             values.username('');
-    //             // values.email('');
-    //             // values.password1('');
-    //             // values.pssaword2('');
-    //  }   
+   
+     
     const handleChange=(e)=>{
         setValues({
             ...values,
@@ -41,10 +27,6 @@ export default function Signup(){
     const handleFormSubmit=(e)=>{
         e.preventDefault();    
         setErrors(validation(values));
-        // console.log([values.userName]);
-        // console.log([values.email]);
-        // console.log([values.password1]);
-        // console.log([values.password2]);
     };
     return(
         <div className="form">
@@ -88,9 +70,9 @@ export default function Signup(){
         {/* <FormControlLabel control={<Checkbox defaultChecked />} label="I agree to the Terms and Conditions" /> */}
         <br/>
         <br/>
-        <Button variant="contained" color="primary"
+        <Link to="/Login"id="button-link"><Button variant="contained" color="primary"
          onClick={handleFormSubmit}
-         ><Link to="#" id="button-link">Create Account</Link></Button>
+         >Create Account</Button></Link>
         </div> 
         <br/>
         <h3 className='text-center'>

@@ -1,12 +1,9 @@
-
 import React from 'react'
 import {useState} from "react"
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-// import Link from '@mui/material/Link';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import validation from "./vali-login-";
-import Signup from "./Signup"
 import "./styles.css";
 import {Link} from "react-router-dom";
 
@@ -22,10 +19,6 @@ export default function Login(){
             ...values,
             [e.target.name]:e.target.value,
         })
-    }
-    
-    const handleFormSubmit=(e)=>{
-        e.preventDefault();
         setErrors(validation(values));
     }
     return(
@@ -46,11 +39,7 @@ export default function Login(){
         </div>
         <br/>
         <br/>
-        {/* <div className='col-two'>
-        <TextField id="email"  type="text"  variant="outlined" label="Email" fullWidth/>
-        </div>
-        <br/> 
-        <br/> */}
+    
         
         <div className='row'>
         <TextField id="password1"  type="text"  variant="outlined" label="Password"
@@ -60,7 +49,7 @@ export default function Login(){
         {errors.password  && <p className="error">{errors.password}</p>}
         <br/> 
         <br/>
-        <Button id="submit"variant="contained" color="primary" onClick={handleFormSubmit}>  Submit</Button>
+        <Link to="/popular" id="button"><Button id="submit"variant="contained" color="primary">Submit</Button></Link>
         </div> 
         <br/>
         <h3 className='text-center'>

@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './style.css'
+import Header from '../components/Header'
 
 import { AppContext } from '../context/AppContext'
 
@@ -110,7 +111,9 @@ function Popular() {
 
 
     return (
+        
         <>
+        <Header/>
             <div className='container'>
 
                 {movies.length === 0 ? <p className='notfound'>Not found</p> : movies.map((movie) => {
