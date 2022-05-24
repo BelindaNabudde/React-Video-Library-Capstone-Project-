@@ -34,7 +34,7 @@ function Header() {
                     <span>
                         <Link to='/cart'> <i className="fas fa-cart-plus"></i></Link>
                     </span>
-                    <span>0</span>
+                    <span>1</span>
                 </div>
 
 

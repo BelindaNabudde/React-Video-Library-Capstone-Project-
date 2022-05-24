@@ -17,7 +17,7 @@ function App() {
     <ContextProvider>
     <BrowserRouter>
       <div className="App">
-        <Header />
+        <Header/>
       </div>
 
       <Routes>

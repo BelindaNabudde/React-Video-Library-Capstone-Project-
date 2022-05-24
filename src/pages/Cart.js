@@ -32,13 +32,25 @@ function Cart() {
     }
 
 
-    const handleChange = (item) => {
+    const addMovie = (item) => {
         //const ind = context.selectedMovie.indexOf(item)
         //const arr  = context.selectedMovie
        item.amount  += 1;
        console.log(context.selectedMovie)
         
 
+    }
+
+    const subtractMovie = (item)=>
+    {
+        item.amount -=1;
+        if(item.amount === 0){
+            handleRemove();
+
+        }
+
+        
+        console.log(context.selectedMovie)
     }
 
 
@@ -78,9 +90,9 @@ function Cart() {
                                     </div>
                                 </td>
                                 <td >
-                                    <button  onClick={()=>{handleChange(movie)}}>-</button>
+                                    <button  onClick={()=>{subtractMovie(movie)}}>-</button>
                                     <button>{movie.amount}</button>
-                                    <button onClick={()=>{handleChange(movie)}}>+</button>
+                                    <button onClick={()=>{addMovie(movie)}}>+</button>
                                 </td>
                                 <td className='sub-total'><i className="fa-solid fa-dollar-sign"></i>{movie.amount * movie.price}</td>
                             </tr>
