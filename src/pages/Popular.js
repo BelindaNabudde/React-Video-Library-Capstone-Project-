@@ -77,7 +77,8 @@ function Popular() {
             image: image_path + film.poster_path,
             title: film.title,
             price: 40,
-            rating: film.vote_average
+            rating: film.vote_average,
+            amount:1,
         }
 
 
@@ -92,6 +93,7 @@ function Popular() {
 
 
         cart.push(moviData)
+        
         context.handleCartItems(cart)
         console.log(cart)
         //console.log(context.selectedMovie)

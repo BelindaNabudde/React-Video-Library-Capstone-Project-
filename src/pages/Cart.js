@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, {useContext } from 'react'
 
 import './cart.css'
 
@@ -6,6 +6,7 @@ import { AppContext } from '../context/AppContext'
 
 
 function Cart() {
+    
 
 
 
@@ -31,6 +32,19 @@ function Cart() {
     }
 
 
+    const handleChange = (item) => {
+        //const ind = context.selectedMovie.indexOf(item)
+        //const arr  = context.selectedMovie
+       item.amount  += 1;
+       console.log(context.selectedMovie)
+        
+
+    }
+
+
+
+    
+
     return (
 
         <div className="small-container cart-page">
@@ -54,7 +68,7 @@ function Cart() {
                             <tr className='details'>
                                 <td>
                                     <div className="cart-info">
-                                        <img src={movie.image} alt="movie image" />
+                                        <img src={movie.image} alt="movie-pic" />
                                         <div>
                                             <p>{movie.title}</p>
                                             <small className='itemPrice'>Price:<i className="fa-solid fa-dollar-sign"></i>{movie.price}</small>
@@ -63,8 +77,12 @@ function Cart() {
                                         </div>
                                     </div>
                                 </td>
-                                <td><input className='inputArrows' type="number" min={0}  /></td>
-                                <td className='sub-total'><i className="fa-solid fa-dollar-sign"></i>40</td>
+                                <td >
+                                    <button  onClick={()=>{handleChange(movie)}}>-</button>
+                                    <button>{movie.amount}</button>
+                                    <button onClick={()=>{handleChange(movie)}}>+</button>
+                                </td>
+                                <td className='sub-total'><i className="fa-solid fa-dollar-sign"></i>{movie.amount * movie.price}</td>
                             </tr>
                         </tbody>
                     )

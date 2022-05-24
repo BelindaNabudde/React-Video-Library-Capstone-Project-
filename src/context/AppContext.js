@@ -10,7 +10,8 @@ function ContextProvider({children}){
             image:'',
             title:'',
             price:'',
-            rating:''
+            rating:'',
+            amount:''
 
         }
     
@@ -18,6 +19,7 @@ function ContextProvider({children}){
 
     const handleCartItems =(cartData)=>{
 
+        // setSelectedMovie([...cartData])
         setSelectedMovie(cartData)
     }
 
