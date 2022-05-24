@@ -15,7 +15,7 @@ function Header() {
             <div className='header'>
                 <nav>
                     <ul>
-                        <li><Link to='/'>Popular</Link></li>
+                        <li><Link to='/popular'>Popular</Link></li>
                         <li><Link to='/theatre'>InTheatre</Link></li>
                         <li><Link to='/drama'>Drama</Link></li>
                         <li><Link to='/kids'>Kids</Link></li>
