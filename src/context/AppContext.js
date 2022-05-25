@@ -34,3 +34,5 @@ export{
     AppContext,
     ContextProvider
 }
+
+// above, the provider is not a default, so when importing it, you have to destructure it ie {ContextProvider}: check App.js line 14
