@@ -79,7 +79,7 @@ function Popular() {
             title: film.title,
             price: 40,
             rating: film.vote_average,
-            amount:1,
+            amount: 1,
         }
 
 
@@ -94,7 +94,7 @@ function Popular() {
 
 
         cart.push(moviData)
-        
+
         context.handleCartItems(cart)
         console.log(cart)
         //console.log(context.selectedMovie)
@@ -112,7 +112,7 @@ function Popular() {
 
     return (
         <>
-        <Header/>
+            <Header />
             <div className='container'>
 
                 {movies.length === 0 ? <p className='notfound'>Not found</p> : movies.map((movie) => {
