@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext,useState } from 'react'
 import Header from '../components/Header'
 import './cart.css'
 
@@ -6,6 +6,8 @@ import { AppContext } from '../context/AppContext'
 
 
 function Cart() {
+
+    const [amount,setAmount] = useState(0)
 
 
 
@@ -35,14 +37,15 @@ function Cart() {
     const addMovie = (item) => {
         //const ind = context.selectedMovie.indexOf(item)
         //const arr  = context.selectedMovie
-        item.amount += 1;
+        setAmount(item.amount += 1);
+        console.log(amount)
         console.log(context.selectedMovie)
 
 
     }
 
     const subtractMovie = (item) => {
-        item.amount -= 1;
+       setAmount( item.amount -= 1);
         if (item.amount === 0) {
             handleRemove();
 
