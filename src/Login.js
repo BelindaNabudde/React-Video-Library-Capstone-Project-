@@ -50,7 +50,7 @@ export default function Login(){
         {errors.password  && <p className="error">{errors.password}</p>}
         <br/> 
         <br/>
-        <Link to="/popular" id="button"><Button id="submit"variant="contained" color="primary">Submit</Button></Link>
+        <Link to="/popular" id="button"><Button id="submit"variant="contained" color="primary">Login</Button></Link>
         </div> 
         <br/>
         <h3 className='text-center'>
