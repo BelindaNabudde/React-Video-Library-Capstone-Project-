@@ -1,4 +1,4 @@
-import React, { useContext,useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import Header from '../components/Header'
 import './cart.css'
 
@@ -7,8 +7,8 @@ import { AppContext } from '../context/AppContext'
 
 function Cart() {
 
-    const [amount,setAmount] = useState(0);
-    //const [total,setTotal] = useState([]);
+    const [amount, setAmount] = useState(0);
+    const [total, setTotal] = useState(0);
 
 
 
@@ -18,6 +18,8 @@ function Cart() {
 
     console.log(context.selectedMovie)
 
+
+
     const handleRemove = (id) => {
         const arr = [...context.selectedMovie]
         let index = arr.findIndex(item => item.id === id)
@@ -26,6 +28,8 @@ function Cart() {
 
 
         context.handleCartItems(arr);
+
+
 
 
 
@@ -46,7 +50,7 @@ function Cart() {
     }
 
     const subtractMovie = (item) => {
-       setAmount( item.amount -= 1);
+        setAmount(item.amount -= 1);
         if (item.amount === 0) {
             handleRemove();
 
@@ -57,17 +61,28 @@ function Cart() {
     }
 
 
-    const subTotal =(item)=>{
+    const subTotal = (item) => {
         item.subtotal = (item.amount * item.price)
-        return ( item.subtotal);
-        
 
-        
+        return (item.subtotal);
+    }
+
+
+    const getTotal = () => {
+
+        let ans = 0;
+
+        context.selectedMovie.map((item) => (ans += item.amount * item.price))
+        setTotal(ans);
 
     }
 
-    
 
+    useEffect(() => {
+
+        getTotal()
+
+    })
 
 
 
@@ -121,7 +136,9 @@ function Cart() {
                         <tbody>
                             <tr>
                                 <td>Total</td>
-                                <td className="total">40</td>
+
+                                <td className="total">{total}</td>
+
                             </tr>
                         </tbody>
                     </table>
