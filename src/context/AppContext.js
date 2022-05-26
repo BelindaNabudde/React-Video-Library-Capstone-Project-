@@ -4,6 +4,9 @@ const AppContext = createContext();
 
 function ContextProvider({children}){
 
+
+
+
     const [selectedMovie, setSelectedMovie] = useState(
         {   
             id:'',
@@ -23,6 +26,10 @@ function ContextProvider({children}){
         // setSelectedMovie([...cartData])
         setSelectedMovie(cartData)
     }
+
+    
+
+    
 
     return(
         <AppContext.Provider value={{selectedMovie,handleCartItems}}>

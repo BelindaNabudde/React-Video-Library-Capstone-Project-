@@ -2,12 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 
+
+
 import '../pages/style.css'
 
 
 function Header() {
-
-
 
     return (
         <>
@@ -34,7 +34,7 @@ function Header() {
                     <span>
                         <Link to='/cart'> <i className="fas fa-cart-plus"></i></Link>
                     </span>
-                    <span>1</span>
+                    <span>0</span>
                 </div>
 
 
