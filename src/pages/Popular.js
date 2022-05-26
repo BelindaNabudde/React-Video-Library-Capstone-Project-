@@ -80,6 +80,7 @@ function Popular() {
             price: 40,
             rating: film.vote_average,
             amount: 1,
+            subtotal:0
         }
 
 

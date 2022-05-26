@@ -11,7 +11,8 @@ function ContextProvider({children}){
             title:'',
             price:'',
             rating:'',
-            amount:''
+            amount:'',
+            subtotal:''
 
         }
     

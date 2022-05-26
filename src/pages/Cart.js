@@ -7,7 +7,8 @@ import { AppContext } from '../context/AppContext'
 
 function Cart() {
 
-    const [amount,setAmount] = useState(0)
+    const [amount,setAmount] = useState(0);
+    //const [total,setTotal] = useState([]);
 
 
 
@@ -56,6 +57,17 @@ function Cart() {
     }
 
 
+    const subTotal =(item)=>{
+        item.subtotal = (item.amount * item.price)
+        return ( item.subtotal);
+        
+
+        
+
+    }
+
+    
+
 
 
 
@@ -97,7 +109,7 @@ function Cart() {
                                         <button>{movie.amount}</button>
                                         <button onClick={() => { addMovie(movie) }}>+</button>
                                     </td>
-                                    <td className='sub-total'><i className="fa-solid fa-dollar-sign"></i>{movie.amount * movie.price}</td>
+                                    <td className='sub-total'><i className="fa-solid fa-dollar-sign"></i>{subTotal(movie)}</td>
                                 </tr>
                             </tbody>
                         )
