@@ -1,61 +1,131 @@
-import React from 'react'
-import {useState} from "react"
-import TextField from '@mui/material/TextField'
-import Button from '@mui/material/Button';
+import React, { useEffect, useState } from 'react'
+import { Avatar, Grid, Paper, TextField, Checkbox, FormGroup, FormControlLabel, Button, Typography } from '@mui/material'
+import { Link, useNavigate } from 'react-router-dom'
 
-import PersonAddIcon from '@mui/icons-material/PersonAdd';
-import validation from "./vali-login-";
-import "./styles.css";
-import {Link} from "react-router-dom";
 
-export default function Login(){
-    const[values, setValues]=useState({
-        username:"",
-        password:"",
-    });
-    const [errors,setErrors]=useState({});
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
-    const handleChange=(e)=>{
-        setValues({
-            ...values,
-            [e.target.name]:e.target.value,
-        })
-        setErrors(validation(values));
+function Login() {
+
+  const navigate = useNavigate();
+
+  const paperStyle = { padding: 20, height: '80vh', width: 280, margin: '20px auto' }
+  const avatarstyle = { backgroundColor: ' #4e876f' }
+  const btnStyle = { backgroundColor: ' #4e876f', margin: '8px 0' }
+  const typoStyle = { margin: '0 0 10px 0' }
+
+  const errorColor = { color: '#FF0000' }
+
+  const [storedUsers, setStoredUsers] = useState([])
+
+
+  const [loggedInName, setLoggedNAme] = useState('')
+
+  const [loggedInPsswd, setLoggedInPsswd] = useState('')
+
+  const [errorMessage, setErrorMessage] = useState('');
+
+
+  useEffect(() => {
+    const storedData = JSON.parse(localStorage.getItem(('data')))
+
+
+    setStoredUsers(storedData)
+
+
+  }, [])
+  console.log(storedUsers)
+
+
+  // storedUsers.map((user)=>{
+  //     return(
+  //       console.log(user.name)
+  //     )
+  //   })
+
+
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+
+    for (let i = 0; i < storedUsers.length; i++) {
+      if ((storedUsers[i].name === loggedInName) && (storedUsers[i].password === loggedInPsswd)) {
+
+        let loggedData = [
+          {
+            name: loggedInName,
+            psswd: loggedInPsswd
+          }
+        ]
+
+        let loggedInUsers = JSON.parse(localStorage.getItem('loggedData'));
+
+        if (loggedInUsers) {
+
+          localStorage.setItem('loggedData', JSON.stringify([...loggedData, ...loggedInUsers]))
+        } else {
+
+          localStorage.setItem('loggedData', JSON.stringify(loggedData));
+        }
+
+
+        console.log(loggedInName)
+        console.log(loggedInPsswd)
+
+        navigate('/popular');
+
+      } else {
+        setErrorMessage('Invalid credentials!')
+      }
     }
-    return(
-        <div className='form'> 
-         <div className='icon'>
-            <div className='icon-class'></div>
-            <PersonAddIcon fontSize="large"/>
-            <div className='text'><h1>Log in</h1></div>
-        </div>
-        <div className='row'>
-        <div className='col-one'>
-        <TextField id="username"  type="text"  variant="outlined" label="UserName"
-        name="username" 
-        value={values.username} 
-        onChange={handleChange}/>
-        {errors.username  && <p className="error">{errors.username}</p>}
-        </div>
-        </div>
-        <br/>
-        <br/>
-    
-        
-        <div className='row'>
-        <TextField id="password1"  type="text"  variant="outlined" label="Password"
-        name="password" 
-        value={values.password} 
-        onChange={handleChange}/>
-        {errors.password  && <p className="error">{errors.password}</p>}
-        <br/> 
-        <br/>
-        <Link to="/popular" id="button"><Button id="submit"variant="contained" color="primary">Login</Button></Link>
-        </div> 
-        <br/>
-        <h3 className='text-center'>
-            <Link to="/" id="Link">Don't have an account</Link>
-        </h3> 
-        </div>
-    );
+
+  }
+
+  return (
+    <Grid>
+      <Paper elevation={10} style={paperStyle}>
+        <Grid align='center'>
+          <Avatar style={avatarstyle}><LockOutlinedIcon /></Avatar>
+          <h2>Sign In</h2>
+        </Grid>
+
+        <form onSubmit={handleSubmit}>
+
+          <TextField value={loggedInName} onChange={e => setLoggedNAme(e.target.value)} name='username' label='Username' placeholder='Enter User name' fullWidth required /> <br /> 
+          {errorMessage && <div style={errorColor} className="error"> {errorMessage} </div>} <br />
+          
+
+          <TextField value={loggedInPsswd} onChange={e => setLoggedInPsswd(e.target.value)} name='password' label='Password' type='password' placeholder='Enter User password' fullWidth required />
+          {errorMessage && <div style={errorColor} className="error"> {errorMessage} </div>}
+
+
+          <FormGroup>
+            <FormControlLabel control={<Checkbox />} label="Remember Me" />
+
+          </FormGroup>
+
+          <Button type='submit' color='primary' style={btnStyle} fullWidth variant="contained">Sign In</Button>
+
+
+          <Typography style={typoStyle}>
+            <Link to='#'>Forgot Password?</Link>
+          </Typography>
+
+
+          <Typography style={typoStyle}> Do you have an account?
+            <Link to='/signup'>Sign up</Link>
+          </Typography>
+
+        </form>
+
+      </Paper>
+
+
+
+    </Grid>
+  )
 }
+
+export default Login

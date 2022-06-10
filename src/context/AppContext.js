@@ -27,6 +27,10 @@ function ContextProvider({children}){
         setSelectedMovie(cartData)
     }
 
+
+
+    console.log(selectedMovie)
+
     
 
     
